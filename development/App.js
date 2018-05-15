@@ -6,6 +6,8 @@ import ScheduleScreen from './src/screens/ScheduleScreen/ScheduleScreen';
 // redux
 import configureStore from './src/store/configureStore';
 
+const store = configureStore();
+
 
 Navigation.registerComponent(
   'appLuminarias.ScheduleScreen',
