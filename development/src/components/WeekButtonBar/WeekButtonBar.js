@@ -4,40 +4,32 @@ import {
   Text,
   StyleSheet
 } from 'react-native';
+import {connect} from 'react-redux';
+
 import CircleButton from '../UI/CircleButton/CircleButton';
+
+import {selectDay} from '../../store/actions/index';
+
 
 class WeekButtonBar extends Component {
 
+  shouldComponentUpdate(nextProps, nextState){
+    return true;
+  }
+
   state = {
-    weekDay:[
-      {value:'L', checked: false},
-      {value:'M', checked: false},
-      {value:'M', checked: false},
-      {value:'J', checked: false},
-      {value:'V', checked: false},
-      {value:'S', checked: false},
-      {value:'D', checked: false}
-    ],
     iconSize: 40,
     colorBtn: '#0c0f1c'
   }
 
   selectButtonHandler = (id) => {
-
-    let newWeekDay = [...this.state.weekDay];
-    newWeekDay[id].checked = !newWeekDay[id].checked;
-
-    this.setState(prevState =>({
-      ...prevState,
-      weekDay: newWeekDay
-    }));
-
+    this.props.onSelectDay(id);
   }
 
   render(){
 
     //let circleArray = null,
-    const circleArray = this.state.weekDay.map((data,index) =>
+    const circleArray = this.props.weekDay.map((data,index) =>
       <CircleButton
         color={this.state.colorBtn}
         size={this.state.iconSize}
@@ -65,4 +57,16 @@ const styles = StyleSheet.create({
   }
 })
 
-export default WeekButtonBar;
+const mapStateToProps = state => {
+  return{
+    weekDay: state.schedules.weekDay
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+  return{
+    onSelectDay: (idDay) => dispatch(selectDay(idDay))
+  }
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(WeekButtonBar);

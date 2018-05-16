@@ -1,17 +1,19 @@
 import {Navigation} from 'react-native-navigation';
-//import {Provider} from 'react-redux';
+import {Provider} from 'react-redux';
 
 import ScheduleScreen from './src/screens/ScheduleScreen/ScheduleScreen';
 
 // redux
-//import configureStore from './src/store/configureStore';
+import configureStore from './src/store/configureStore';
 
-//const store = configureStore();
+const store = configureStore();
 
 
 Navigation.registerComponent(
   'appLuminarias.ScheduleScreen',
-  () => ScheduleScreen
+  () => ScheduleScreen,
+  store,
+  Provider
 );
 
 

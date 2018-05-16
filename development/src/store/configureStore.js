@@ -1,7 +1,8 @@
 import {createStore, combineReducers, compose} from 'redux';
+import schedulesReducer from './reducers/schedules';
 
 const rootReducer = combineReducers({
-  places: []
+  schedules: schedulesReducer
 });
 
 let composeEnhancers = compose;

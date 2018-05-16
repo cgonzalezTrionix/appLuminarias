@@ -1,25 +1,34 @@
-import React from 'react';
+import React, {Component} from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 
-const headerWithImage = (props) => {
-  return (
-    <View style={styles.container}>
-      <View style={styles.subcontainer}>
-        <View style={styles.iconWrapper}>
-          <Icon
-            name="md-wifi"
-            color="white"
-            size={40}
-          />
-        </View>
-        <View>
-          <Text style={styles.textWraper}>{props.data}</Text>
+class HeaderWithImage extends Component {
+
+  shouldComponentUpdate(nextProps, nextState){
+    return nextProps.data !== this.props.data;
+  }
+
+  render(){
+    return(
+      <View style={styles.container}>
+        <View style={styles.subcontainer}>
+          <View style={styles.iconWrapper}>
+            <Icon
+              name="md-wifi"
+              color="white"
+              size={40}
+            />
+          </View>
+          <View>
+            <Text style={styles.textWraper}>{this.props.data}</Text>
+          </View>
         </View>
       </View>
-    </View>
-  );
-};
+    );
+  }
+
+
+}
 
 const styles = StyleSheet.create({
   container:{
@@ -37,6 +46,6 @@ const styles = StyleSheet.create({
   textWraper:{
     color: 'white'
   }
-})
+});
 
-export default headerWithImage;
+export default HeaderWithImage;
