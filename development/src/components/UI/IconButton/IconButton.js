@@ -40,7 +40,8 @@ const styles = StyleSheet.create({
     borderColor: 'black',
     flexDirection: "row",
     justifyContent: "space-between",
-    alignItems:'center'
+    alignItems:'center',
+    alignSelf: 'center'
   },
   iconWrapper:{
     marginRight:5

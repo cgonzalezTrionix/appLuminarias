@@ -12,6 +12,7 @@ import TouchableListItem from '../UI/TouchableListItem/TouchableListItem';
 class ScheduleTable extends Component {
 
   shouldComponentUpdate(nextProps, nextState){
+    console.log('Updating.');
     return nextProps.hours !== this.props.hours;
   }
 

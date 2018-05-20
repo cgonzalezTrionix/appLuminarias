@@ -12,7 +12,7 @@ const initialState = {
   ],
   hours: [
     {id:0, value:'00:00', checked: false},
-    {id:1, value:'00:30', checked: true},
+    {id:1, value:'00:30', checked: false},
     {id:2, value:'01:00', checked: false},
     {id:3, value:'01:30', checked: false},
     {id:4, value:'02:00', checked: false},

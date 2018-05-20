@@ -16,9 +16,9 @@ import ScheduleTable from '../../components/ScheduleTable/ScheduleTable';
 
 class ScheduleScreen extends Component {
 
-  shouldComponentUpdate(nextProps, nextState){
-    //console.log('Update ScheduleScreen Table');
-    return true;
+
+  componentWillUnmount(){
+    console.log('ScheduleScreen goneee!!!');
   }
 
   componentDidMount() {
