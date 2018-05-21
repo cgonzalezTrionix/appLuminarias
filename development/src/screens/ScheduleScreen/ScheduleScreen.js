@@ -41,13 +41,15 @@ class ScheduleScreen extends Component {
   }
 
   onLoadButtonHandler = () => {
-    this.loadData('MyData');
+    this.props.navigator.showModal({
+      screen:'appLuminarias.LoadDataScreen',
+      navigatorStyle: navStyles.titleStyle
+    });
   }
 
   getAllKeys = async() => {
     try{
       const value = await AsyncStorage.getAllKeys();
-      console.log(value);
     }catch(error){
       console.log(error);
     }
@@ -58,29 +60,12 @@ class ScheduleScreen extends Component {
     try {
       //'@MySuperStore:key'
       await AsyncStorage.setItem(key, data);
-      console.log('Data saved!!')
     } catch (error) {
       console.log(error);
     // Error saving data
     }
 
   }
-
-  loadData = async(key) => {
-    try {
-      const value = await AsyncStorage.getItem(key);
-      if (value !== null){
-        // We have data!!
-        console.log('Data readed');
-        console.log(value);
-      }
-    } catch (error) {
-      console.log(error);
-      // Error retrieving data
-    }
-  }
-
-
 
   checkSelectedDays = () => {
     //Lunes es el bit mas significativo

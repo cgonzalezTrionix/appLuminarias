@@ -1,1 +1,1 @@
-export {selectDay, selectHour} from './schedules';
+export {selectDay, selectHour,changeAll} from './schedules';

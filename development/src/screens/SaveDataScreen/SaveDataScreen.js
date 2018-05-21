@@ -23,7 +23,6 @@ import PopMessage from '../../components/PopMessage/PopMessage';
      saved: false
    }
 
-
    saveData = async(key,data) => {
      try {
        this.setState( prevState => {

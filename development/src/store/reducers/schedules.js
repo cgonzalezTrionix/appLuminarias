@@ -1,4 +1,4 @@
-import {SELECT_DAY, SELECT_HOUR} from '../actions/actionsTypes';
+import {SELECT_DAY, SELECT_HOUR,CHANGE_ALL} from '../actions/actionsTypes';
 
 const initialState = {
   weekDay:[
@@ -64,6 +64,7 @@ const initialState = {
 
 const reducer = (state = initialState, action) => {
   switch(action.type){
+
     case SELECT_DAY:
       let newWeekDay = [...state.weekDay];
       newWeekDay[action.idDay].checked = !newWeekDay[action.idDay].checked;
@@ -77,8 +78,37 @@ const reducer = (state = initialState, action) => {
       return{
         ...state,
         hours:newHours
-      }
+      };
+    case CHANGE_ALL:
 
+      let tempD = [...state.weekDay];
+      let tempH = [...state.hours];
+
+      tempD.forEach(el => {
+        el.checked = false;
+      });
+
+      tempH.forEach(el => {
+        el.checked = false;
+      })
+
+      action.newDays.forEach((el,idx) => {
+        if(el === '1') {
+            tempD[idx + (tempD.length - action.newDays.length)].checked = true;
+        }
+      });
+
+      action.newHours.forEach((el,idx) => {
+        if(el === '1') {
+            tempH[idx + (tempH.length - action.newHours.length)].checked = true;
+        }
+      });
+
+      return{
+        ...state,
+        weekDay: tempD,
+        hours:tempH
+      };
     default:
       return state;
   }

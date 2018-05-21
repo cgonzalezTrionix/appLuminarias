@@ -7,6 +7,7 @@ import ScheduleScreen from './src/screens/ScheduleScreen/ScheduleScreen';
 import TimerScreen from './src/screens/TimerScreen/TimerScreen';
 import ScheduleFilesScreen from './src/screens/ScheduleFilesScreen/ScheduleFilesScreen';
 import SaveDataScreen from './src/screens/SaveDataScreen/SaveDataScreen';
+import LoadDataScreen from './src/screens/LoadDataScreen/LoadDataScreen';
 
 // redux
 import configureStore from './src/store/configureStore';
@@ -41,6 +42,15 @@ Navigation.registerComponent(
   store,
   Provider
 );
+
+Navigation.registerComponent(
+  'appLuminarias.LoadDataScreen',
+  () => LoadDataScreen,
+  store,
+  Provider
+);
+
+
 
 startMainTabs();
 //  Start appLuminarias
