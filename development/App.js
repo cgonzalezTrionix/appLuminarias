@@ -6,6 +6,7 @@ import startMainTabs from './src/screens/MainTabs/startMainTabs';
 import ScheduleScreen from './src/screens/ScheduleScreen/ScheduleScreen';
 import TimerScreen from './src/screens/TimerScreen/TimerScreen';
 import ScheduleFilesScreen from './src/screens/ScheduleFilesScreen/ScheduleFilesScreen';
+import SaveDataScreen from './src/screens/SaveDataScreen/SaveDataScreen';
 
 // redux
 import configureStore from './src/store/configureStore';
@@ -30,6 +31,13 @@ Navigation.registerComponent(
 Navigation.registerComponent(
   'appLuminarias.ScheduleFilesScreen',
   () => ScheduleFilesScreen,
+  store,
+  Provider
+);
+
+Navigation.registerComponent(
+  'appLuminarias.SaveDataScreen',
+  () => SaveDataScreen,
   store,
   Provider
 );

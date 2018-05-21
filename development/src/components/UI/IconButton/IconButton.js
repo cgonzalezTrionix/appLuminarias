@@ -9,7 +9,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 
 const iconButton = props => {
   return(
-    <TouchableOpacity>
+    <TouchableOpacity onPress={props.onPress}>
       <View
         style={[
           styles.button,

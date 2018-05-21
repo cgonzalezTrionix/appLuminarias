@@ -4,7 +4,7 @@ const initialState = {
   weekDay:[
     {value:'L', checked: false},
     {value:'M', checked: false},
-    {value:'M', checked: false},
+    {value:'Mi', checked: false},
     {value:'J', checked: false},
     {value:'V', checked: false},
     {value:'S', checked: false},

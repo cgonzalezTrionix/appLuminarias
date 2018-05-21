@@ -29,7 +29,6 @@ import CustomSubtitle from '../../components/CustomSubtitle/CustomSubtitle';
     onNavigatorEvent(event) {
       switch(event.id) {
         case 'willAppear':
-
          break;
         case 'didAppear':
           this.timer = TimerMixin.setInterval(
@@ -38,15 +37,11 @@ import CustomSubtitle from '../../components/CustomSubtitle/CustomSubtitle';
             },
             1000
           );
-          console.log('Timer Clock mounted');
           break;
         case 'willDisappear':
           TimerMixin.clearInterval(this.timer);
-          console.log('Timer Clock goneee!!!');
           break;
         case 'didDisappear':
-
-
           break;
         case 'willCommitPreview':
           break;
@@ -54,7 +49,6 @@ import CustomSubtitle from '../../components/CustomSubtitle/CustomSubtitle';
     }
 
     getCurrentTime = () =>{
-      console.log('Hola');
 
       let hour = new Date().getHours();
       let minutes = new Date().getMinutes();
