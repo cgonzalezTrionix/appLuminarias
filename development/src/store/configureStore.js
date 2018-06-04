@@ -1,8 +1,11 @@
 import {createStore, combineReducers, compose} from 'redux';
 import schedulesReducer from './reducers/schedules';
+import bluetoothReducer from './reducers/bluetooth';
 
 const rootReducer = combineReducers({
-  schedules: schedulesReducer
+  schedules: schedulesReducer,
+  ble: bluetoothReducer
+
 });
 
 let composeEnhancers = compose;

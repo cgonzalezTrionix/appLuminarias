@@ -20,7 +20,8 @@ const iconCircleButton = props => {
               width: props.size,
               height: props.size,
               borderRadius: props.size/2
-            }
+            },
+            props.style
           ]}
         >
         <Icon

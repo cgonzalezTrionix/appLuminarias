@@ -1,9 +1,12 @@
 import React from 'react';
 import {View,Modal, StyleSheet} from 'react-native';
 import Spinner from 'react-native-spinkit';
+import PopMessage from '../../components/PopMessage/PopMessage';
 
 
-const customModal = props => {
+const messageModal = props => {
+  //'md-checkmark-circle-outline'
+  //'green'
   return(
     <Modal
       animationType="fade"
@@ -11,9 +14,12 @@ const customModal = props => {
       visible={props.visible}
       onRequestClose={props.onRequestClose}>
       <View style={styles.modalContainer}>
-        <View style={styles.spinnerContainer}>
-          <Spinner style={styles.spinner} color='#0c0f1c' size={150} type='Circle'/>
-        </View>
+        <PopMessage
+          icon={props.iconMessage.name}
+          iconColor={props.iconMessage.color}
+        >
+          {props.iconMessage.data}
+        </PopMessage>
       </View>
     </Modal>
   );
@@ -36,4 +42,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default customModal;
+export default messageModal;
